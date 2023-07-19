@@ -1,0 +1,82 @@
+main {
+  margin: 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.table-custom img.main {
+  width: 200px;
+}
+
+.table-custom {
+  /* width: 200px;
+  height: 200px; */
+  position: relative;
+  padding: 12px;
+}
+
+.table-custom::after {
+  content: attr(data-table-id);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.chair {
+  width: 30px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.pos1 {
+  left: 78px;
+  top: 13px;
+}
+
+.pos2 {
+  left: 125px;
+  top: 12px;
+}
+
+.pos3 {
+  left: 160px;
+  top: 36px;
+}
+
+.pos4 {
+  left: 179px;
+  top: 87px;
+}
+
+.pos5 {
+  left: 164px;
+  top: 129px;
+}
+
+.pos6 {
+  left: 127px;
+  top: 158px;
+}
+
+.pos7 {
+  left: 74px;
+  top: 161px;
+}
+
+.pos8 {
+  left: 37px;
+  top: 131px;
+}
+
+.pos9 {
+  left: 13px;
+  top: 86px;
+}
+
+.pos10 {
+  left: 34px;
+  top: 38px;
+}
