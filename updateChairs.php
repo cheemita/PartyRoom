@@ -11,6 +11,8 @@ if($action == "update") {
     VALUES (?, ?)");
     $result->bind_param("ss", $chair, $user_id);
     $result->execute();
+    
+    //If the action of update chair and appers the name of theperson reserve 
 }
 
 // if action is delete then delete the record
