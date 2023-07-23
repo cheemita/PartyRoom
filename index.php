@@ -37,7 +37,6 @@
             <li><a href="#packages" class="nav-link px-2 link-dark">Packages</a></li>
             <li><a href="#slider" class="nav-link px-2 link-dark">Slider</a></li>
             <li><a href="#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
-            <li><a href="partyRoom.php" class="nav-link px-2 link-dark">Party Room</a></li>
             <li><button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalContact">
                 Contact Us
               </button></li>
@@ -230,9 +229,11 @@
                 <li>Drinks included</li>
                 <li>Parking lot</li>
               </ul>
-              <button type="button" class="w-100 btn btn-lg btn-outline-primary">
-                Get started
+
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalPay">
+                 Get started
               </button>
+             
             </div>
           </div>
         </div>
@@ -252,9 +253,12 @@
                 <li>Parking lot</li>
                 <li>Winning surprise</li>
               </ul>
+              <a href="partyRoom2.php">
               <button type="button" class="w-100 btn btn-lg btn-outline-primary">
-                Get started
+                 Get started
               </button>
+              </a>
+
             </div>
           </div>
         </div>
@@ -275,9 +279,11 @@
                 <li>Winning surprise</li>
                 <li>Special gift</li>
               </ul>
+              <a href="partyRoom3.php">
               <button type="button" class="w-100 btn btn-lg btn-primary">
                 Let's go!
               </button>
+              </a>
             </div>
           </div>
         </div>
@@ -415,6 +421,27 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal pay 1-->
+  <div class="modal" id="modalPay" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="partyRoom.php">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Modal Contact us -->
   <div class="modal fade" id="modalContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

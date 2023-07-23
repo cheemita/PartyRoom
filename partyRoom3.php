@@ -33,6 +33,7 @@
             <li><a href="index.php#packages" class="nav-link px-2 link-dark">Packages</a></li>
             <li><a href="index.php#slider" class="nav-link px-2 link-dark">Slider</a></li>
             <li><a href="index.php#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
+            <li><a href="#partyRoom.php" class="nav-link px-2 link-dark">Party Room</a></li>
           </ul>
 
           <div class="dropdown text-end">
@@ -48,9 +49,8 @@
     }
     ?>
 
-
   <select class="form-select w-25" id="packagesSelect" aria-label="Select your package!">
-    <option value="1">Basic (1 chair)</option>
+    <option value="3">Basic (3 chair)</option>
   </select>
 
     <main id="tables-frame"></main>
