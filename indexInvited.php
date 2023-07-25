@@ -22,7 +22,7 @@
   <?php
   session_start();
 
-  if (isset($_SESSION["auth"])) {
+  if (isset($_SESSION["authInv"])) {
     echo '  <div class="container">
         <header class="
               d-flex
@@ -34,7 +34,7 @@
               border-bottom
             ">
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> ADMIN </a></li>
+            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> Invited </a></li>
             <li><a href="#packages" class="nav-link px-2 link-dark">Packages</a></li>
             <li><a href="#slider" class="nav-link px-2 link-dark">Slider</a></li>
             <li><a href="#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
@@ -48,7 +48,7 @@
             <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-            <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["auth"] . '</a></li>
+            <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["authInv"] . '</a></li>
           </ul>
         </div>
         </header>
