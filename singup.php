@@ -6,11 +6,20 @@ $user = $_POST["user"];
 $fullname = $_POST["fullname"];
 $email = $_POST["email"];
 $pass = $_POST["password"];
+$packages = $_POST["packages"];
 
-$result = $mysql->prepare("INSERT INTO users (username, password, email, fullname)
-VALUES (?, ?, ?, ?)");
+// Verificar si el paquete seleccionado es "Básico" y asignar el token correspondiente
+if ($packages === "basico") {
+    $token = "DFTWX5TJ";
+} else {
+    // Puedes agregar más lógica aquí para asignar tokens a otros paquetes si es necesario
+    $token = ""; // En este caso, dejamos el token vacío para otros paquetes
+}
 
-$result->bind_param("ssss", $user, $pass, $email, $fullname);
+$result = $mysql->prepare("INSERT INTO users (username, password, email, fullname, packages, token)
+VALUES (?, ?, ?, ?, ?, ?)");
+
+$result->bind_param("ssssss", $user, $pass, $email, $fullname, $packages, $token);
 $result->execute();
 
 $result2 = $mysql->prepare("SELECT username, email, id FROM USERS where username = ? AND password = ? ");

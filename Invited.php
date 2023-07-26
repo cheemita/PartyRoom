@@ -501,27 +501,25 @@
 
   <!-- Modal pay 1-->
   <div class="modal" id="modalPay" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Enter Token</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="token-form">
-            <div class="form-group">
-              <label for="token" class="form-label">Token</label>
-              <input type="text" class="form-control" id="token" placeholder="Enter your token" required>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="submit-token">Submit Token</button>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter Token</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="token.php" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required>
+            <label for="token">Token</label>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Token</button>
+        </form>
       </div>
     </div>
   </div>
+</div>
+
 
 
     <!-- Modal pay 2-->
@@ -529,41 +527,20 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Payment Details</h5>
+          <h5 class="modal-title">Enter Token</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="payment-form">
-            <div class="form-group">
-              <label for="card-number" class="form-label">Card Number</label>
-              <input type="text" class="form-control" id="card-number" placeholder="1234 5678 9012 3456" required>
-            </div>
-            <div class="form-group">
-              <label for="card-name" class="form-label">Cardholder Name</label>
-              <input type="text" class="form-control" id="card-name" placeholder="John Doe" required>
-            </div>
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <label for="expiry-date" class="form-label">Expiry Date</label>
-                <input type="text" class="form-control" id="expiry-date" placeholder="MM/YY" required>
-              </div>
-              <div class="col-md-6 form-group">
-                <label for="cvv" class="form-label">CVV</label>
-                <input type="text" class="form-control" id="cvv" placeholder="123" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <img src="./img/targeta.jpg" alt="Card Image" class="card-image">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          
-          <a href="RoomInvited2.php">
-          <button type="button" class="btn btn-primary" id="submit-payment">Submit Payment</button>
-          </a>
 
+        <form action="tokenPersonal.php" method="POST">
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required>
+            <label for="token">Token</label>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Token</button>
+
+          </form>
         </div>
       </div>
     </div>
@@ -575,41 +552,20 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Payment Details</h5>
+          <h5 class="modal-title">Enter Token</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="payment-form">
-            <div class="form-group">
-              <label for="card-number" class="form-label">Card Number</label>
-              <input type="text" class="form-control" id="card-number" placeholder="1234 5678 9012 3456" required>
-            </div>
-            <div class="form-group">
-              <label for="card-name" class="form-label">Cardholder Name</label>
-              <input type="text" class="form-control" id="card-name" placeholder="John Doe" required>
-            </div>
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <label for="expiry-date" class="form-label">Expiry Date</label>
-                <input type="text" class="form-control" id="expiry-date" placeholder="MM/YY" required>
-              </div>
-              <div class="col-md-6 form-group">
-                <label for="cvv" class="form-label">CVV</label>
-                <input type="text" class="form-control" id="cvv" placeholder="123" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <img src="./img/targeta.jpg" alt="Card Image" class="card-image">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          
-          <a href="RoomInvited3.php">
-          <button type="button" class="btn btn-primary" id="submit-payment">Submit Payment</button>
-          </a>
 
+        <form action="tokenFamily.php" method="POST">
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required>
+            <label for="token">Token</label>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Token</button>
+
+          </form>
         </div>
       </div>
     </div>

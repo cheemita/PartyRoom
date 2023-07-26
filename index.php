@@ -384,6 +384,15 @@
               <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password">
               <label for="password">Password</label>
             </div>
+
+            <div class="form-floating mb-3">
+                <select class="form-select rounded-4" id="SelectPackages" name="packages">
+                  <option value="basico">Básico</option>
+                  <option value="personal">Personal</option>
+                  <option value="familiar">Familiar</option>
+                </select>
+                <label for="SelectPackages">Select Packages</label>
+            </div>
             <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Sign up</button>
             <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
             <hr class="my-4">
@@ -423,6 +432,12 @@
               <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password">
               <label for="password">Password</label>
             </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="password" placeholder="DFTWX5TJ" name="token">
+              <label for="token">Token</label>
+            </div>
+
             <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Sign up</button>
             <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
             <hr class="my-4">
