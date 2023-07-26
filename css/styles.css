@@ -1,0 +1,98 @@
+.invitedButton{
+    align-items: center;
+    margin-left: 120px;
+}
+
+.adminButton{
+    margin-left: 70px;
+}
+
+#modalPay{
+    margin-top: 10%;
+}
+#modalPayPersonal{
+  margin-top: 10%;
+}
+#modalPayFamily{
+  margin-top: 10%;
+}
+#modalLogin{
+  margin-top: 15%;
+}
+#modalLoginIn{
+  margin-top: 15%;
+}
+
+#modalSelectOp{
+    margin-top: 30%;
+}
+
+
+#modalSingUpOp{
+    margin-top: 20%;
+}
+
+#payment-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+
+/* Estilo para la imagen de la tarjeta */
+.card-image {
+  max-width: 150px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+
+
+/* Estilos para las etiquetas del formulario */
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Estilos para los campos de entrada del formulario */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+/* Estilos para el botón de envío de pago */
+#submit-payment {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submit-payment:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para el mensaje de carga y pago realizado */
+.loading-message,
+.success-message {
+  display: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+.success-message {
+  color: green;
+}
+
+/* Estilos para el botón de cierre del modal */
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

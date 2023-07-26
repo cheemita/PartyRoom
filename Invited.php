@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
 
-  <script src="./js/pago.js"></script>
+   <script src="./js/pago.js"></script>
 </head>
 
 <title>Home</title>
@@ -24,7 +24,7 @@
   <?php
   session_start();
 
-  if (isset($_SESSION["auth"])) {
+  if (isset($_SESSION["authInv"])) {
     echo '  <div class="container">
         <header class="
               d-flex
@@ -36,7 +36,7 @@
               border-bottom
             ">
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> ADMIN </a></li>
+            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> Invited </a></li>
             <li><a href="#packages" class="nav-link px-2 link-dark">Packages</a></li>
             <li><a href="#slider" class="nav-link px-2 link-dark">Slider</a></li>
             <li><a href="#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
@@ -50,7 +50,7 @@
             <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-            <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["auth"] . '</a></li>
+            <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["authInv"] . '</a></li>
           </ul>
         </div>
         </header>
@@ -233,7 +233,7 @@
                 <li>Parking lot</li>
               </ul>
 
-              <button type="button" class="w-100 btn btn-lg btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalSelectOp">
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalPay">
                  Get started
               </button>
              
@@ -256,10 +256,11 @@
                 <li>Parking lot</li>
                 <li>Winning surprise</li>
               </ul>
-              <a href="partyRoom2.php">
-              <button type="button" class="w-100 btn btn-lg btn-outline-primary">
+             
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalPayPersonal">
                  Get started
               </button>
+
               </a>
 
             </div>
@@ -282,11 +283,9 @@
                 <li>Winning surprise</li>
                 <li>Special gift</li>
               </ul>
-              <a href="partyRoom3.php">
-              <button type="button" class="w-100 btn btn-lg btn-primary">
+              <button type="button" class="w-100 btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#modalPayFamily">
                 Let's go!
               </button>
-              </a>
             </div>
           </div>
         </div>
@@ -406,7 +405,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-5 pt-0">
-          <form action="singupInvited.php" method="POST">
+          <form action="singup.php" method="POST">
             <div class="form-floating mb-3">
               <input type="text" class="form-control rounded-4" id="user" placeholder="name@example.com" name="user">
               <label for="user">Username</label>
@@ -500,6 +499,121 @@
     </div>
   </div>
 
+  <!-- Modal pay 1-->
+  <div class="modal" id="modalPay" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Enter Token</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="token-form">
+            <div class="form-group">
+              <label for="token" class="form-label">Token</label>
+              <input type="text" class="form-control" id="token" placeholder="Enter your token" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="submit-token">Submit Token</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Modal pay 2-->
+    <div class="modal" id="modalPayPersonal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Payment Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="payment-form">
+            <div class="form-group">
+              <label for="card-number" class="form-label">Card Number</label>
+              <input type="text" class="form-control" id="card-number" placeholder="1234 5678 9012 3456" required>
+            </div>
+            <div class="form-group">
+              <label for="card-name" class="form-label">Cardholder Name</label>
+              <input type="text" class="form-control" id="card-name" placeholder="John Doe" required>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <label for="expiry-date" class="form-label">Expiry Date</label>
+                <input type="text" class="form-control" id="expiry-date" placeholder="MM/YY" required>
+              </div>
+              <div class="col-md-6 form-group">
+                <label for="cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cvv" placeholder="123" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <img src="./img/targeta.jpg" alt="Card Image" class="card-image">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          
+          <a href="RoomInvited2.php">
+          <button type="button" class="btn btn-primary" id="submit-payment">Submit Payment</button>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+    <!-- Modal pay 3-->
+    <div class="modal" id="modalPayFamily" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Payment Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="payment-form">
+            <div class="form-group">
+              <label for="card-number" class="form-label">Card Number</label>
+              <input type="text" class="form-control" id="card-number" placeholder="1234 5678 9012 3456" required>
+            </div>
+            <div class="form-group">
+              <label for="card-name" class="form-label">Cardholder Name</label>
+              <input type="text" class="form-control" id="card-name" placeholder="John Doe" required>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <label for="expiry-date" class="form-label">Expiry Date</label>
+                <input type="text" class="form-control" id="expiry-date" placeholder="MM/YY" required>
+              </div>
+              <div class="col-md-6 form-group">
+                <label for="cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cvv" placeholder="123" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <img src="./img/targeta.jpg" alt="Card Image" class="card-image">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          
+          <a href="RoomInvited3.php">
+          <button type="button" class="btn btn-primary" id="submit-payment">Submit Payment</button>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!-- Modal Sing Up Admi or Invited-->
 

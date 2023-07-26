@@ -20,10 +20,10 @@ if ($user_result != null){
     $_SESSION["id"] = $id_result;
     $_SESSION["email"] = $email_result;
 
-    header("Location: index.php");
+    header("Location: Admin.php");
  } else {
     //invalid user
     session_destroy();
-    header("Location: index.php");
+    header("Location: Admin.php");
 }
 ?>

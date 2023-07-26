@@ -24,10 +24,10 @@ var_dump($user_result, $email_result, $id_result);
 
 if ($user_result != null){
     //valid user
-    $_SESSION["auth"] = $user;
+    $_SESSION["authInv"] = $user;
     $_SESSION["id"] = $id_result;
     $_SESSION["email"] = $email_result;
-    header("Location: Admin.php");
+    header("Location: Invited.php");
  } else {
      //invalid user
      session_destroy();

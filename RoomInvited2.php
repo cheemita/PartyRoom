@@ -14,8 +14,8 @@
     <?php
     session_start();
 
-    if (!isset($_SESSION["auth"])) {
-        header("Location: index.php");
+    if (!isset($_SESSION["authInv"])) {
+        header("Location: Invited.php");
         exit;
     } else {
         echo '<div class="container">
@@ -41,7 +41,7 @@
             <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-            <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["auth"] . '</a></li>
+            <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["authInv"] . '</a></li>
           </ul>
         </div>
         </header>
