@@ -77,6 +77,7 @@
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
             <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["auth"] . '</a></li>
+            <li><a class="dropdown-item" href="Setting.php">Setting</a></li>
           </ul>
         </div>
         </header>
@@ -135,6 +136,7 @@
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
             <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["authInv"] . '</a></li>
+            <li><a class="dropdown-item" href="Setting.php">Setting</a></li>
           </ul>
         </div>
         </header>
