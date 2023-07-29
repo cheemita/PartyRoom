@@ -384,7 +384,6 @@
               <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password">
               <label for="password">Password</label>
             </div>
-
             <div class="form-floating mb-3">
                 <select class="form-select rounded-4" id="SelectPackages" name="packages">
                   <option value="basico">Básico</option>
@@ -392,6 +391,26 @@
                   <option value="familiar">Familiar</option>
                 </select>
                 <label for="SelectPackages">Select Packages</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="cardNumber" placeholder="1234567890123456" name="cardNumber">
+              <label for="cardNumber">Card Number</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="cardName" placeholder="Mibzar Galarza" name="cardName">
+              <label for="cardName">Card Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="expiryDate" placeholder="12/27" name="expiryDate">
+              <label for="expiryDate">Expiry Date</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control rounded-4" id="cvvs" placeholder="122" name="cvv">
+              <label for="cvv">CVV</label>
+            </div>
+
+            <div class="form-floating mb-3">
+            <img src="./img/targeta.jpg" alt="Card Image" class="card-image">
             </div>
             <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Sign up</button>
             <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
@@ -434,7 +453,7 @@
             </div>
 
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="password" placeholder="DFTWX5TJ" name="token">
+              <input type="text" class="form-control rounded-4" id="token" placeholder="DFTWX5TJ" name="token">
               <label for="token">Token</label>
             </div>
 

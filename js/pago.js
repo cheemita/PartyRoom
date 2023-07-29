@@ -16,4 +16,21 @@ document.getElementById("submit-token").addEventListener("click", function() {
   }
 });
 
+function copyToken() {
+  // Obtiene el elemento que contiene el token
+  const tokenElement = document.getElementById("tokenText");
   
+  // Obtiene el texto del token
+  const tokenText = tokenElement.innerText;
+
+  // Utiliza el API del portapapeles para copiar el texto
+  navigator.clipboard.writeText(tokenText)
+    .then(() => {
+      // Notifica al usuario que el token se ha copiado correctamente
+      alert("Token copied to clipboard!");
+    })
+    .catch((error) => {
+      // En caso de error, muestra un mensaje al usuario
+      console.error("Failed to copy token: ", error);
+    });
+}

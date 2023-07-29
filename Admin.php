@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/custom.css" />
   <link rel="stylesheet" href="./css/carousel.css" />
   <link rel="stylesheet" href="./css/styles.css" />
+   <script src="./js/pago.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
 </head>
@@ -42,6 +43,33 @@
                 Contact Us
               </button></li>
           </ul>
+
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalToken">
+          Watch your Token
+        </button>
+
+        
+        <div class="modal" id="modalToken" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Your Token</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <h5 class="modal-title tokenModal">Your Token:</h5>
+            <h5 class="modal-title tokenModal" id="tokenText">'.$_SESSION["token"].'</h5>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="copyToken()">Copy Token</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
 
           <div class="dropdown text-end">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -379,6 +407,34 @@
               <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password">
               <label for="password">Password</label>
             </div>
+            <div class="form-floating mb-3">
+                <select class="form-select rounded-4" id="SelectPackages" name="packages">
+                  <option value="basico">Básico</option>
+                  <option value="personal">Personal</option>
+                  <option value="familiar">Familiar</option>
+                </select>
+                <label for="SelectPackages">Select Packages</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="cardNumber" placeholder="1234567890123456" name="cardNumber">
+              <label for="cardNumber">Card Number</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="cardName" placeholder="Mibzar Galarza" name="cardName">
+              <label for="cardName">Card Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="expiryDate" placeholder="12/27" name="expiryDate">
+              <label for="expiryDate">Expiry Date</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control rounded-4" id="cvvs" placeholder="122" name="cvv">
+              <label for="cvv">CVV</label>
+            </div>
+
+            <div class="form-floating mb-3">
+            <img src="./img/targeta.jpg" alt="Card Image" class="card-image">
+            </div>
             <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Sign up</button>
             <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
             <hr class="my-4">
@@ -390,6 +446,7 @@
       </div>
     </div>
   </div>
+
 
   
   <!-- Modal Signup Invited -->
@@ -424,6 +481,78 @@
             <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalLogin">
               Click here to Log In
             </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal pay 1-->
+  <div class="modal" id="modalPay" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter Token</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="tokenAdmin.php" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required>
+            <label for="token">Token</label>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Token</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Modal pay 2-->
+    <div class="modal" id="modalPayPersonal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Enter Token</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+        <form action="tokenAdminPersonal.php" method="POST">
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required>
+            <label for="token">Token</label>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Token</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+    <!-- Modal pay 3-->
+    <div class="modal" id="modalPayFamily" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Enter Token</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+        <form action="tokenAdminFamily.php" method="POST">
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required>
+            <label for="token">Token</label>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Token</button>
+
           </form>
         </div>
       </div>
@@ -490,50 +619,7 @@
   </div>
 
  
-   <!-- Modal pay 1-->
-   <div class="modal" id="modalPay" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Payment Details</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="payment-form">
-            <div class="form-group">
-              <label for="card-number" class="form-label">Card Number</label>
-              <input type="text" class="form-control" id="card-number" placeholder="1234 5678 9012 3456" required>
-            </div>
-            <div class="form-group">
-              <label for="card-name" class="form-label">Cardholder Name</label>
-              <input type="text" class="form-control" id="card-name" placeholder="John Doe" required>
-            </div>
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <label for="expiry-date" class="form-label">Expiry Date</label>
-                <input type="text" class="form-control" id="expiry-date" placeholder="MM/YY" required>
-              </div>
-              <div class="col-md-6 form-group">
-                <label for="cvv" class="form-label">CVV</label>
-                <input type="text" class="form-control" id="cvv" placeholder="123" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <img src="./img/targeta.jpg" alt="Card Image" class="card-image">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          
-          <a href="RoomAdmin1.php">
-          <button type="button" class="btn btn-primary" id="submit-payment">Submit Payment</button>
-          </a>
 
-        </div>
-      </div>
-    </div>
-  </div>
 
     <!-- Modal pay 2-->
     <div class="modal" id="modalPayPersonal" tabindex="-1">

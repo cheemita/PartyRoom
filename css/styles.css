@@ -32,9 +32,16 @@
     margin-top: 20%;
 }
 
+#modalToken{
+  margin-top: 20%;
+}
+
 #payment-form {
   max-width: 400px;
   margin: 0 auto;
+}
+.tokenModal{
+  display: inline-block;
 }
 
 
@@ -95,4 +102,8 @@
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+#tokenB{
+  width: 10% !important;
 }
