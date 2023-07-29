@@ -20,11 +20,11 @@ if ($user_result != null) {
     $_SESSION["email"] = $email_result;
     $_SESSION["token"] = $token; // Si es necesario almacenar el token en la sesión
 
-    header("Location: Invited.php");
+    header("Location: Admin.php");
 } else {
     // Usuario o token inválido
     session_destroy();
-    header("Location: Invited.php");
+    header("Location: Admin.php");
 }
 
 ?>

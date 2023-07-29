@@ -81,6 +81,64 @@
         </div>
         </header>
     </div>';
+  }else if (isset($_SESSION["authInv"])) {
+    echo '  <div class="container">
+        <header class="
+              d-flex
+              flex-wrap
+              align-items-center
+              justify-content-center justify-content-md-between
+              py-3
+              mb-4
+              border-bottom
+            ">
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> INVITADO </a></li>
+            <li><a href="#packages" class="nav-link px-2 link-dark">Packages</a></li>
+            <li><a href="#slider" class="nav-link px-2 link-dark">Slider</a></li>
+            <li><a href="#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
+            <li><button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalContact">
+                Contact Us
+              </button></li>
+          </ul>
+
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalToken">
+          Watch your Token
+        </button>
+
+        
+        <div class="modal" id="modalToken" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Your Token</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <h5 class="modal-title tokenModal">Your Token:</h5>
+            <h5 class="modal-title tokenModal" id="tokenText">'.$_SESSION["token"].'</h5>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="copyToken()">Copy Token</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+          <div class="dropdown text-end">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
+          </a>
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+            <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["authInv"] . '</a></li>
+          </ul>
+        </div>
+        </header>
+    </div>';
   } else {
     echo ' <div class="container">
       <header class="
@@ -392,11 +450,11 @@
         <div class="modal-body p-5 pt-0">
           <form action="singup.php" method="POST">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="user" placeholder="name@example.com" name="user">
+              <input type="text" class="form-control rounded-4" id="user" placeholder="name@example.com" name="user" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
               <label for="user">Username</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="fullname" placeholder="name@example.com" name="fullname">
+              <input type="text" class="form-control rounded-4" id="fullname" placeholder="name@example.com" name="fullname" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
               <label for="fullname">Full name</label>
             </div>
             <div class="form-floating mb-3">
@@ -404,7 +462,7 @@
               <label for="email">Email address</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password">
+              <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password" required pattern=".{8,}" title="La contraseña debe de tener 8 caracteres">
               <label for="password">Password</label>
             </div>
             <div class="form-floating mb-3">
@@ -416,19 +474,19 @@
                 <label for="SelectPackages">Select Packages</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="cardNumber" placeholder="1234567890123456" name="cardNumber">
+              <input type="text" class="form-control rounded-4" id="cardNumber" placeholder="1234567890123456" name="cardNumber" required pattern=".{16,}" title="Deben de ser 16 numeros para la targeta">
               <label for="cardNumber">Card Number</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="cardName" placeholder="Mibzar Galarza" name="cardName">
+              <input type="text" class="form-control rounded-4" id="cardName" placeholder="Mibzar Galarza" name="cardName" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
               <label for="cardName">Card Name</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="expiryDate" placeholder="12/27" name="expiryDate">
+              <input type="text" class="form-control rounded-4" id="expiryDate" placeholder="12/27" name="expiryDate" required pattern=".{5,}" title="El formato es 12/25">
               <label for="expiryDate">Expiry Date</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control rounded-4" id="cvvs" placeholder="122" name="cvv">
+              <input type="password" class="form-control rounded-4" id="cvvs" placeholder="122" name="cvv" required pattern=".{3,}" title="Son 3 numeros del numero del CVV">
               <label for="cvv">CVV</label>
             </div>
 
@@ -460,11 +518,11 @@
         <div class="modal-body p-5 pt-0">
           <form action="singupAdmin.php" method="POST">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="user" placeholder="name@example.com" name="user">
+              <input type="text" class="form-control rounded-4" id="user" placeholder="name@example.com" name="user" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
               <label for="user">Username</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="fullname" placeholder="name@example.com" name="fullname">
+              <input type="text" class="form-control rounded-4" id="fullname" placeholder="name@example.com" name="fullname" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
               <label for="fullname">Full name</label>
             </div>
             <div class="form-floating mb-3">
@@ -472,12 +530,12 @@
               <label for="email">Email address</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password">
+              <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password" required pattern=".{8,}" title="La contraseña debe de tener 8 caracteres">
               <label for="password">Password</label>
             </div>
 
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="token" placeholder="DFTWX5TJ" name="token">
+              <input type="text" class="form-control rounded-4" id="token" placeholder="DFTWX5TJ" name="token" required pattern="^.{8,}" title="El token debe de tener 8 caracteres">
               <label for="token">Token</label>
             </div>
 
@@ -504,7 +562,7 @@
       <div class="modal-body">
         <form action="tokenAdmin.php" method="POST">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control rounded-4" id="token" name="token" required>
+            <input type="text" class="form-control rounded-4" id="token" name="token"  required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
             <label for="token">Token</label>
           </div>
           <button class="btn btn-primary" type="submit">Submit Token</button>
@@ -529,7 +587,7 @@
         <form action="tokenAdminPersonal.php" method="POST">
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control rounded-4" id="token" name="token" required>
+            <input type="text" class="form-control rounded-4" id="token" name="token"  required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
             <label for="token">Token</label>
           </div>
           <button class="btn btn-primary" type="submit">Submit Token</button>
@@ -554,7 +612,7 @@
         <form action="tokenAdminFamily.php" method="POST">
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control rounded-4" id="token" name="token" required>
+            <input type="text" class="form-control rounded-4" id="token" name="token"  required pattern=".{8,}" title="El token debe tener al menos 8 caracteres" >
             <label for="token">Token</label>
           </div>
           <button class="btn btn-primary" type="submit">Submit Token</button>
