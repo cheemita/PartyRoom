@@ -396,6 +396,7 @@
   </div>
 
   
+ 
   <!-- Modal Signup Invited -->
   <div class="modal fade" id="modalSignupInvited" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -405,7 +406,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-5 pt-0">
-          <form action="singup.php" method="POST">
+          <form action="singupInvited.php" method="POST">
             <div class="form-floating mb-3">
               <input type="text" class="form-control rounded-4" id="user" placeholder="name@example.com" name="user">
               <label for="user">Username</label>
@@ -422,6 +423,12 @@
               <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password">
               <label for="password">Password</label>
             </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="token" placeholder="DFTWX5TJ" name="token">
+              <label for="token">Token</label>
+            </div>
+
             <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Sign up</button>
             <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
             <hr class="my-4">
@@ -434,70 +441,67 @@
     </div>
   </div>
 
-  <!-- Modal Login Admin-->
-  <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content rounded-5 shadow">
-        <div class="modal-header p-5 pb-4 border-bottom-0">
-          <h2 class="fw-bold mb-0">Log In Admin</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-5 pt-0">
-          <form action="auth.php" method="POST">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="user" placeholder="PanchoVilla" name="user">
-              <label for="email">Username</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password">
-              <label for="password">Password</label>
-            </div>
-            <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Log In</button>
-            <hr class="my-4">
-            <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalSignup">
-              Click here to Sing Up
-            </button>
-          </form>
-        </div>
+ <!-- Modal Login Admin-->
+<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h2 class="fw-bold mb-0">Log In Admin</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form action="auth.php" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="user" placeholder="PanchoVilla" name="user" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
+            <label for="email">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password" required pattern=".{8,}" title="La contraseña debe tener al menos 8 caracteres">
+            <label for="password">Password</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Log In</button>
+          <hr class="my-4">
+          <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalSignup">
+            Click here to Sing Up
+          </button>
+        </form>
       </div>
     </div>
   </div>
+</div>
 
-  
   <!-- Modal Login Invited-->
-  <div class="modal fade" id="modalLoginIn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content rounded-5 shadow">
-        <div class="modal-header p-5 pb-4 border-bottom-0">
-          <h2 class="fw-bold mb-0">Log In Invited</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-5 pt-0">
-          <form action="authInvited.php" method="POST">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="user" placeholder="PanchoVilla" name="user">
-              <label for="email">Username</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password">
-              <label for="password">Password</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="token" placeholder="token" name="token">
-              <label for="token">Token</label>
-            </div>
-
-            <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Log In</button>
-            <hr class="my-4">
-            <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalSignup">
-              Click here to Sing Up
-            </button>
-          </form>
-        </div>
+<div class="modal fade" id="modalLoginIn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h2 class="fw-bold mb-0">Log In Invited</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form action="authInvited.php" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="user" placeholder="PanchoVilla" name="user" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
+            <label for="email">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password" required pattern=".{8,}" title="La contraseña debe tener al menos 8 caracteres">
+            <label for="password">Password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" placeholder="token" name="token" required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
+            <label for="token">Token</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Log In</button>
+          <hr class="my-4">
+          <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalSignup">
+            Click here to Sing Up
+          </button>
+        </form>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Modal pay 1-->
   <div class="modal" id="modalPay" tabindex="-1">

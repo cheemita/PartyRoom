@@ -5,6 +5,12 @@ include "connection.php";
 $user = $_POST["user"];
 $pass = $_POST["password"];
 
+if (strlen($password) < 8) {
+    // Si la contraseña tiene menos de 8 caracteres, redirige nuevamente al modal de inicio de sesión
+    header("Location: index.php");
+    exit();
+}
+
 $result = $mysql->prepare("SELECT username, email, id ,token  FROM USERS where username = ? AND password = ? ");
 $result->bind_param("ss", $user, $pass);
 $result->execute();
