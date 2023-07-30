@@ -553,8 +553,8 @@
     </div>
   </div>
 
-  <!-- Modal pay 1-->
-  <div class="modal" id="modalPay" tabindex="-1">
+ <!-- Modal pay 1-->
+<div class="modal" id="modalPay" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -562,9 +562,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="tokenAdmin.php" method="POST">
+        <form id="tokenForm" action="tokenAdmin.php" method="POST">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control rounded-4" id="token" name="token"  required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
+            <input type="text" class="form-control rounded-4" id="user" name="user" required>
+            <label for="user">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
             <label for="token">Token</label>
           </div>
           <button class="btn btn-primary" type="submit">Submit Token</button>
@@ -573,6 +577,7 @@
     </div>
   </div>
 </div>
+
 
 
 

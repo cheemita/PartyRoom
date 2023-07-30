@@ -3,15 +3,22 @@ session_start();
 include "connection.php";
 
 $token = $_POST["token"];
+$user = $_POST["user"];
 
-$result = $mysql->prepare("SELECT username, email, id FROM USERS WHERE token = ?");
-$result->bind_param("s", $token);
+// Check if the submitted username matches the currently logged-in user
+if ($user !== $_SESSION["auth"]) {
+    echo "<script>alert('Invalid username. Please enter the correct username.'); window.location.href='Admin.php';</script>";
+    exit();
+}
+
+$result = $mysql->prepare("SELECT username, email, id, token FROM USERS WHERE username = ?");
+$result->bind_param("s", $user);
 $result->execute();
 
-$result->bind_result($user_result, $email_result, $id_result);
+$result->bind_result($user_result, $email_result, $id_result, $token_result);
 $result->fetch();
 
-if ($user_result != null) {
+if ($user_result != null && $token === $token_result) {
     // Token válido
     $_SESSION["auth"] = $user_result;
     $_SESSION["id"] = $id_result;
@@ -21,9 +28,6 @@ if ($user_result != null) {
     header("Location: RoomAdmin1.php");
 } else {
     // Token inválido
-    session_destroy();
-    header("Location: RoomAdmin1.php");
+    echo "<script>alert('Invalid token. Please enter the correct token.'); window.location.href='Admin.php';</script>";
 }
-
-
 ?>
