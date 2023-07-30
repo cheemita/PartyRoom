@@ -34,3 +34,17 @@ function copyToken() {
       console.error("Failed to copy token: ", error);
     });
 }
+
+
+function validateForm() {
+  var password = document.getElementById("password").value;
+  var confirmPassword = document.getElementById("confirm_password").value;
+
+  if (password !== confirmPassword) {
+    alert("Error: Passwords do not match. Please enter the same password in both fields.");
+    return false; // Prevent form submission
+  }
+
+  // If the passwords match, submit the form
+  document.getElementById("userSettingsForm").submit();
+}
