@@ -11,14 +11,14 @@ if ($user !== $_SESSION["auth"]) {
     exit();
 }
 
-$result = $mysql->prepare("SELECT username, email, id, token FROM USERS WHERE username = ?");
+$result = $mysql->prepare("SELECT username, email, id, token, packages FROM USERS WHERE username = ?");
 $result->bind_param("s", $user);
 $result->execute();
 
-$result->bind_result($user_result, $email_result, $id_result, $token_result);
+$result->bind_result($user_result, $email_result, $id_result, $token_result, $packages_result);
 $result->fetch();
 
-if ($user_result != null && $token === $token_result) {
+if ($user_result != null && $token === $token_result && $packages_result === "basico" ) {
     // Token válido
     $_SESSION["auth"] = $user_result;
     $_SESSION["id"] = $id_result;
@@ -28,6 +28,6 @@ if ($user_result != null && $token === $token_result) {
     header("Location: RoomAdmin1.php");
 } else {
     // Token inválido
-    echo "<script>alert('Invalid token. Please enter the correct token.'); window.location.href='Admin.php';</script>";
+    echo "<script>alert('Invalid token. Please enter the correct token or your token no is the right packages'); window.location.href='Admin.php';</script>";
 }
 ?>

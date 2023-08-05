@@ -64,12 +64,16 @@
     <div class="col-lg-6 mx-auto">
     <form action="updateSetting.php" id="userSettingsForm" method="post">
       <div class="mb-3">
-        <label for="username" class="form-label">Username:</label>
-        <input type="text" class="form-control" id="username" name="username" value="' . $_SESSION["auth"] . '" required>
+        <label for="user" class="form-label">Username:</label>
+        <input type="text" class="form-control" id="user" name="user" readonly value="'.$_SESSION["auth"].'" required>
+      </div>
+      <div class="mb-3">
+        <label for="new_username" class="form-label">New Username:</label>
+        <input type="text" class="form-control" id="new_username" name="new_username" required>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="email" name="email" value="' . $_SESSION["email"] . '" required>
+        <input type="email" class="form-control" id="email" name="email" value="'.$_SESSION["email"].'" required>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">New Password:</label>
@@ -80,7 +84,7 @@
         <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
       </div>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-3">
-        <button type="button" id="buttonSubmit" onclick="validateForm()" class="btn btn-primary btn-lg px-4 me-sm-3">Update Changes</button>
+        <button type="submit" id="buttonSubmit" class="btn btn-primary btn-lg px-4 me-sm-3">Update Changes</button>
       </div>
     </form>
   </div>
@@ -121,33 +125,33 @@
         </header>
     </div>
 
-    <div class="px-4 pt-5 text-center border-bottom" id="generalInfo">
-  <h1 class="display-4 fw-bold">Alex Events</h1>
-  <div class="col-lg-6 mx-auto">
-    <form action="updateSetting.php" method="POST" id="userSettingsForm">
+    <div class="col-lg-6 mx-auto">
+    <form action="updateSettingInv.php" id="userSettingsForm" method="post">
       <div class="mb-3">
-        <label for="username" class="form-label">Username:</label>
-        <input type="text" class="form-control" id="username" name="username" value="'.$_SESSION["authInv"].'" required>
+        <label for="user" class="form-label">Username:</label>
+        <input type="text" class="form-control" id="user" name="user" readonly value"'.$_SESSION["authInv"].'" required>
+      </div>
+      <div class="mb-3">
+        <label for="new_username" class="form-label">New Username:</label>
+        <input type="text" class="form-control" id="new_username" name="new_username" required>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" id="email" name="email" value="'.$_SESSION["email"].'" required>
       </div>
       <div class="mb-3">
-        <label for="password" class="form-label">Password:</label>
-        <input type="password" class="form-control" id="password" name="password" value="'.$_SESSION["password"].'" required>
+        <label for="password" class="form-label">New Password:</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <div class="mb-3">
+        <label for="confirm_password" class="form-label">Confirm New Password:</label>
+        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
       </div>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-3">
-        <button type="submit" class="btn btn-primary btn-lg px-4 me-sm-3">Update Changes</button>
+        <button type="submit" id="buttonSubmit" class="btn btn-primary btn-lg px-4 me-sm-3">Update Changes</button>
       </div>
     </form>
   </div>
-  <div class="overflow-hidden" style="max-height: 30vh">
-    <div class="container px-5">
-      <img src="https://hostaljuanchocuba.com/wp-content/uploads/2020/12/2985-192258-edited.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" loading="lazy" width="700" height="500" />
-    </div>
-  </div>
-</div>
 
     
     ';

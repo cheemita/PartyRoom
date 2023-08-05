@@ -132,7 +132,7 @@
                 showModal('Remove my chair', 'Do you want to remove this chair?', "Yes, remove", "No, don't remove", () => {
                     chairsSelected--;
                     $(this).attr("src", "img/chair-available.png");
-                    $.post('updateChairs.php', { action: "delete", chair: $(this).attr("data-chair"), user_id: '<?php echo $_SESSION['id']; ?>'  }, function(result) {
+                    $.post('updateChairsPersonal.php', { action: "delete", chair: $(this).attr("data-chair"), user_id: '<?php echo $_SESSION['id']; ?>'  }, function(result) {
                       console.log("chair deleted", result);
                       $(chairDOM).popover('disable');
                     });
@@ -141,7 +141,7 @@
                 if (chairsSelected >= chairsPerUser) return;
                 showModal('Reserve new chair', 'Do you want to reserve this chair?', "Yes, reserve", "No, don't reserve", () => {
                     $(this).attr("src", "img/chair-occupied-user.png");
-                    $.post('updateChairs.php', { action: "update", chair: $(this).attr("data-chair"), user_id: '<?php echo $_SESSION['id']; ?>'  }, function(result)
+                    $.post('updateChairsPersonal.php', { action: "update", chair: $(this).attr("data-chair"), user_id: '<?php echo $_SESSION['id']; ?>'  }, function(result)
                     {
                         chairsSelected++;
                         console.log("chair updated");
@@ -156,7 +156,7 @@
         getChairs();
 
         async function getChairs() {
-            let url = "code/chairs.php";
+            let url = "code/chairsPersonal.php";
             await fetch(url)
                 .then(response => response.json())
                 .then(data => {

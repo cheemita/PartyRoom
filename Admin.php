@@ -54,7 +54,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Your Token</h5>
+              <h5 class="modal-title">Your Token is '.$_SESSION["packages"].'</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -113,7 +113,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Your Token</h5>
+              <h5 class="modal-title">Your Token is '.$_SESSION["packages"].'</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -127,6 +127,85 @@
           </div>
         </div>
       </div>
+
+      <!-- Modal pay 1-->
+<div class="modal" id="modalPay" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter Token Invited</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="tokenForm" action="token.php" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="user" name="user" required>
+            <label for="user">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
+            <label for="token">Token</label>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Token</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!-- Modal pay 2-->
+   <div class="modal" id="modalPayPersonal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter Token Invited pERSONAL</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="tokenFormFamily" action="tokenPersonal.php" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="user" name="user" required>
+            <label for="user">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
+            <label for="token">Token</label>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Token</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    <!-- Modal pay 3-->
+ <div class="modal" id="modalPayFamily" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter Token Invited</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="tokenForm" action="tokenFamily.php" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="user" name="user" required>
+            <label for="user">Usernam</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
+            <label for="token">Token</label>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Token</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
       
 
@@ -558,7 +637,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Enter Token</h5>
+        <h5 class="modal-title">Enter Token Admin</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -582,53 +661,55 @@
 
 
     <!-- Modal pay 2-->
-    <div class="modal" id="modalPayPersonal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Enter Token</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-
-        <form action="tokenAdminPersonal.php" method="POST">
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control rounded-4" id="token" name="token"  required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
+   <div class="modal" id="modalPayPersonal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter Token Admin 2</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="tokenFormFamily" action="tokenAdminPersonal.php" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="user" name="user" required>
+            <label for="user">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
             <label for="token">Token</label>
           </div>
           <button class="btn btn-primary" type="submit">Submit Token</button>
-
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
 
   
     <!-- Modal pay 3-->
-    <div class="modal" id="modalPayFamily" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Enter Token</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-
-        <form action="tokenAdminFamily.php" method="POST">
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control rounded-4" id="token" name="token"  required pattern=".{8,}" title="El token debe tener al menos 8 caracteres" >
+ <div class="modal" id="modalPayFamily" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter Token</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="tokenForm" action="tokenAdminFamily.php" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="user" name="user" required>
+            <label for="user">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" name="token" required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
             <label for="token">Token</label>
           </div>
           <button class="btn btn-primary" type="submit">Submit Token</button>
-
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
 
 <!-- Modal Login Admin-->
 <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

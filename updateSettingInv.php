@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($num_rows > 0) {
             // New username is already taken, show alert
-            echo '<script>alert("El nuevo nombre de usuario ya está ocupado. Por favor, elige otro nombre de usuario."); window.location.href = "Setting.php";</script>';
+            echo '<script>alert("El nuevo nombre de usuario ya está ocupado. Por favor, elige otro nombre de usuario."); window.location.href = "tu_pagina_de_edicion.php";</script>';
             exit; // Stop further execution to avoid updating with a duplicate username
         }
 
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Check if the update was successful
         if ($result->affected_rows > 0) {
             // Update successful
-            $_SESSION["auth"] = $newUsername; // Update the session with the new username
+            $_SESSION["authInv"] = $newUsername; // Update the session with the new username
             $_SESSION["email"] = $email;
             header("Location: Admin.php");
             exit();
