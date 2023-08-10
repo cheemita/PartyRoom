@@ -8,16 +8,23 @@
   <link rel="stylesheet" href="./css/bootstrap.min.css" />
   <link rel="stylesheet" href="./css/custom.css" />
   <link rel="stylesheet" href="./css/carousel.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
   <link rel="stylesheet" href="./css/style.css" />
+  <link href="ruta/a/bootstrap.min.css" rel="stylesheet">
+  <link href="ruta/a/font-awesome.min.css" rel="stylesheet">
+  <link href="ruta/a/bootstrap.min.css" rel="stylesheet">
+<script src="ruta/a/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+
+  <script src="./js/pago.js"></script>
 </head>
 
 <title>Home</title>
 </head>
 
 <body>
-  <!-- Navv -->
+  <!-- Nav -->
 
   <?php
   session_start();
@@ -34,11 +41,10 @@
               border-bottom
             ">
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#generalInfo" class="nav-link px-2 link-dark">General Information</a></li>
+            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> ADMIN </a></li>
             <li><a href="#packages" class="nav-link px-2 link-dark">Packages</a></li>
             <li><a href="#slider" class="nav-link px-2 link-dark">Slider</a></li>
             <li><a href="#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
-            <li><a href="partyRoom.php" class="nav-link px-2 link-dark">Party Room</a></li>
             <li><button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalContact">
                 Contact Us
               </button></li>
@@ -50,11 +56,44 @@
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
             <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["auth"] . '</a></li>
+            <li><a class="dropdown-item" href="Setting.php">Setting</a></li>
           </ul>
         </div>
         </header>
     </div>';
-  } else {
+  }else if (isset($_SESSION["authInv"])) {
+    echo '  <div class="container">
+        <header class="
+              d-flex
+              flex-wrap
+              align-items-center
+              justify-content-center justify-content-md-between
+              py-3
+              mb-4
+              border-bottom
+            ">
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> INVITADO </a></li>
+            <li><a href="#packages" class="nav-link px-2 link-dark">Packages</a></li>
+            <li><a href="#slider" class="nav-link px-2 link-dark">Slider</a></li>
+            <li><a href="#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
+            <li><button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalContact">
+                Contact Us
+              </button></li>
+          </ul>
+
+          <div class="dropdown text-end">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
+          </a>
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+            <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["authInv"] . '</a></li>
+            <li><a class="dropdown-item" href="Setting.php">Setting</a></li>
+          </ul>
+        </div>
+        </header>
+    </div>';
+  }  else {
     echo ' <div class="container">
       <header class="
             d-flex
@@ -88,10 +127,10 @@
         </ul>
 
         <div class="col-md-3 text-end">
-          <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#modalLogin">
+          <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#modalSelectOp">
             Login
           </button>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSignup">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSingUpOp">
             Sign up
           </button>
         </div>
@@ -101,7 +140,6 @@
   ?>
 
   <!-- Hero -->
-  
   <header class="header">
 
 
@@ -457,23 +495,22 @@
 </div>
 
 
-
-  <!-- Modal Signup -->
-  <div class="modal fade" id="modalSignup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal Signup Admin -->
+  <div class="modal fade" id="modalSignupAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content rounded-5 shadow">
         <div class="modal-header p-5 pb-4 border-bottom-0">
-          <h2 class="fw-bold mb-0">Sign up for free</h2>
+          <h2 class="fw-bold mb-0">Sign up for Admin</h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-5 pt-0">
           <form action="singup.php" method="POST">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="user" placeholder="name@example.com" name="user">
+              <input type="text" class="form-control rounded-4" id="user" placeholder="name@example.com" name="user" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
               <label for="user">Username</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="fullname" placeholder="name@example.com" name="fullname">
+              <input type="text" class="form-control rounded-4" id="fullname" placeholder="name@example.com" name="fullname" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
               <label for="fullname">Full name</label>
             </div>
             <div class="form-floating mb-3">
@@ -481,8 +518,36 @@
               <label for="email">Email address</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password">
+              <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password" required pattern=".{8,}" title="La contraseña debe de tener minimo 8 caracteres">
               <label for="password">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+                <select class="form-select rounded-4" id="SelectPackages" name="packages">
+                  <option value="basico">Básico</option>
+                  <option value="personal">Personal</option>
+                  <option value="familiar">Familiar</option>
+                </select>
+                <label for="SelectPackages">Select Packages</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="cardNumber" placeholder="1234567890123456" name="cardNumber" required pattern=".{16,}" title="La targeta debe de tener 16 caracteres">
+              <label for="cardNumber">Card Number</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="cardName" placeholder="Mibzar Galarza" name="cardName" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
+              <label for="cardName">Card Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="expiryDate" placeholder="12/27" name="expiryDate" required pattern=".{5,}" title="El formato es: 12/25">
+              <label for="expiryDate">Expiry Date</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control rounded-4" id="cvvs" placeholder="122" name="cvv" required pattern=".{3,}" title="Se require los 3 numeros del CVV">
+              <label for="cvv">CVV</label>
+            </div>
+
+            <div class="form-floating mb-3">
+            <img src="./img/targeta.jpg" alt="Card Image" class="card-image">
             </div>
             <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Sign up</button>
             <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
@@ -496,34 +561,154 @@
     </div>
   </div>
 
-  <!-- Modal Login -->
-  <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  
+  <!-- Modal Signup Invited -->
+  <div class="modal fade" id="modalSignupInvited" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content rounded-5 shadow">
         <div class="modal-header p-5 pb-4 border-bottom-0">
-          <h2 class="fw-bold mb-0">Log In</h2>
+          <h2 class="fw-bold mb-0">Sign up for Invited</h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-5 pt-0">
-          <form action="auth.php" method="POST">
+          <form action="singupInvited.php" method="POST">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control rounded-4" id="user" placeholder="PanchoVilla" name="user">
-              <label for="email">Username</label>
+              <input type="text" class="form-control rounded-4" id="user" placeholder="name@example.com" name="user"  required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
+              <label for="user">Username</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password">
+              <input type="text" class="form-control rounded-4" id="fullname" placeholder="name@example.com" name="fullname"  required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del nombre del usuario">
+              <label for="fullname">Full name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control rounded-4" id="email" placeholder="name@example.com" name="email">
+              <label for="email">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password"  required pattern=".{8,}" title="La contraseña debe de tener 8 caracteres">
               <label for="password">Password</label>
             </div>
-            <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Log In</button>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="admin" placeholder="name@example.com" name="admin"  required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
+              <label for="admin">Admin Username</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-4" id="token" placeholder="DFTWX5TJ" name="token"   required pattern=".{8,}" title="El token debe de tener 8 caracteres">
+              <label for="token">Token</label>
+            </div>
+
+            <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Sign up</button>
+            <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
             <hr class="my-4">
-            <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalSignup">
-              Click here to Sing Up
+            <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalLogin">
+              Click here to Log In
             </button>
           </form>
         </div>
       </div>
     </div>
   </div>
+
+<!-- Modal Login Admin-->
+<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h2 class="fw-bold mb-0">Log In Admin</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form action="auth.php" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="user" placeholder="PanchoVilla" name="user" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
+            <label for="email">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password" required pattern=".{8,}" title="La contraseña debe tener al menos 8 caracteres">
+            <label for="password">Password</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Log In</button>
+          <hr class="my-4">
+          <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalSignup">
+            Click here to Sing Up
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Login Invited-->
+<div class="modal fade" id="modalLoginIn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h2 class="fw-bold mb-0">Log In Invited</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form action="authInvited.php" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="user" placeholder="PanchoVilla" name="user" required pattern="^\S(.*\S)?$" title="No se permiten espacios al principio o al final del usuario">
+            <label for="email">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-4" id="password" placeholder="Password" name="password" required pattern=".{8,}" title="La contraseña debe tener al menos 8 caracteres">
+            <label for="password">Password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-4" id="token" placeholder="token" name="token" required pattern=".{8,}" title="El token debe tener al menos 8 caracteres">
+            <label for="token">Token</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Log In</button>
+          <hr class="my-4">
+          <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalSignup">
+            Click here to Sing Up
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal Sing Up Admi or Invited-->
+
+<div class="modal" id="modalSingUpOp" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-primary adminButton" data-bs-toggle="modal" data-bs-target="#modalSignupAdmin">Admin</button>
+        <button type="button" class="btn btn-secondary invitedButton" data-bs-dismiss="modal"  data-bs-toggle="modal" data-bs-target="#modalSignupInvited">Invited</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Login Admi or Invited-->
+
+<div class="modal" id="modalSelectOp" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-primary adminButton" data-bs-toggle="modal" data-bs-target="#modalLogin">Admin</button>
+        <button type="button" class="btn btn-secondary invitedButton" data-bs-dismiss="modal"  data-bs-toggle="modal" data-bs-target="#modalLoginIn">Invited</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Modal Contact us -->
   <div class="modal fade" id="modalContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

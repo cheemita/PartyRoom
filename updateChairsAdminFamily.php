@@ -7,7 +7,11 @@ $chair = $_POST["chair"];
 $user_id = $_POST["user_id"];
 
 if($action == "update") {
-    $result = $mysql->prepare("INSERT INTO chairs (id, idUser)
+<<<<<<< HEAD
+    $result = $mysql->prepare("INSERT INTO family (id, idUser)
+=======
+    $result = $mysql->prepare("INSERT INTO chairsadminfamily (id, idUser)
+>>>>>>> b1840815f2567af98bfaafb192b96b9c4d8045f9
     VALUES (?, ?)");
     $result->bind_param("ss", $chair, $user_id);
     $result->execute();
@@ -17,7 +21,11 @@ if($action == "update") {
 
 // if action is delete then delete the record
 if($action == "delete") {
-    $result = $mysql->prepare("DELETE FROM chairs WHERE id = ?");
+<<<<<<< HEAD
+    $result = $mysql->prepare("DELETE FROM family WHERE id = ?");
+=======
+    $result = $mysql->prepare("DELETE FROM chairsadminfamily WHERE id = ?");
+>>>>>>> b1840815f2567af98bfaafb192b96b9c4d8045f9
     $result->bind_param("s", $chair);
     $result->execute();
 }
