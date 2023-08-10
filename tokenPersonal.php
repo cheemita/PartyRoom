@@ -3,15 +3,54 @@ session_start();
 include "connection.php";
 
 $token = $_POST["token"];
+$user = $_POST["user"];
+$newPackagesValue = "personal";
 
-$result = $mysql->prepare("SELECT username, email, id FROM USERS WHERE token = ?");
-$result->bind_param("s", $token);
+// Check if the submitted username matches the currently logged-in user
+if ($user !== $_SESSION["authInv"]) {
+    echo "<script>alert('Invalid username. Please enter the correct username.'); window.location.href='Admin.php';</script>";
+    exit();
+}
+
+$result = $mysql->prepare("SELECT username, email, id, token, packages FROM USERS WHERE username = ?");
+$result->bind_param("s", $user);
 $result->execute();
 
-$result->bind_result($user_result, $email_result, $id_result);
+$result->bind_result($user_result, $email_result, $id_result, $token_result, $packages_result);
 $result->fetch();
+$result->close();
 
-if ($user_result != null) {
+if ($token === $token_result) {
+    $newPackagesValue = "personal";
+
+    // Verificar si ya existe un valor en la columna 'packages' para el usuario
+    $selectQuery = $mysql->prepare("SELECT packages FROM USERS WHERE username = ?");
+    $selectQuery->bind_param("s", $user);
+    $selectQuery->execute();
+    $selectQuery->bind_result($existingPackagesValue);
+    $selectQuery->fetch();
+    $selectQuery->close();
+
+    // Si no hay un valor existente en 'packages', proceder con la actualización
+    if ($existingPackagesValue === null) {
+        $updateQuery = $mysql->prepare("UPDATE USERS SET packages = ? WHERE username = ?");
+        
+        // Verificar si la preparación de la consulta fue exitosa
+        if ($updateQuery) {
+            $updateQuery->bind_param("ss", $newPackagesValue, $user);
+            $updateQuery->execute();
+            $updateQuery->close();
+        } else {
+            // Mostrar un mensaje de error si la preparación de la consulta falla
+            die("Error in prepare: " . $mysql->error);
+        }
+    }
+}
+
+
+
+if ($user_result != null && $token === $token_result && $packages_result === "personal") {
+
     // Token válido
     $_SESSION["authInv"] = $user_result;
     $_SESSION["id"] = $id_result;
@@ -21,9 +60,6 @@ if ($user_result != null) {
     header("Location: RoomInvited2.php");
 } else {
     // Token inválido
-    session_destroy();
-    header("Location: RoomInvited2.php");
+    echo "<script>alert('Invalid token. Please enter the correct token or your token is not the right package.'); window.location.href='Admin.php';</script>";
 }
-
-
 ?>

@@ -14,8 +14,8 @@
     <?php
     session_start();
 
-    if (!isset($_SESSION["authInv"])) {
-        header("Location: Invited.php");
+    if (!isset($_SESSION["auth"])) {
+        header("Location: index.php");
         exit;
     } else {
         echo '<div class="container">
@@ -41,7 +41,7 @@
             <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-            <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["authInv"] . '</a></li>
+            <li><a class="dropdown-item" href="logout.php">Sign out from ' . $_SESSION["auth"] . '</a></li>
           </ul>
         </div>
         </header>
@@ -50,7 +50,9 @@
     ?>
 
   <select class="form-select w-25" id="packagesSelect" aria-label="Select your package!">
-    <option value="2">Basic (2 chair)</option>
+    <option value="1">Basic (1 chair)</option>
+    <option value="1">Personal (1 chair)</option>
+    <option value="3">Family (3 chairs)</option>
   </select>
 
     <main id="tables-frame"></main>
@@ -132,7 +134,7 @@
                 showModal('Remove my chair', 'Do you want to remove this chair?', "Yes, remove", "No, don't remove", () => {
                     chairsSelected--;
                     $(this).attr("src", "img/chair-available.png");
-                    $.post('updateChairsPersonal.php', { action: "delete", chair: $(this).attr("data-chair"), user_id: '<?php echo $_SESSION['id']; ?>'  }, function(result) {
+                    $.post('updateChairs.php', { action: "delete", chair: $(this).attr("data-chair"), user_id: '<?php echo $_SESSION['id']; ?>'  }, function(result) {
                       console.log("chair deleted", result);
                       $(chairDOM).popover('disable');
                     });
@@ -141,7 +143,7 @@
                 if (chairsSelected >= chairsPerUser) return;
                 showModal('Reserve new chair', 'Do you want to reserve this chair?', "Yes, reserve", "No, don't reserve", () => {
                     $(this).attr("src", "img/chair-occupied-user.png");
-                    $.post('updateChairsPersonal.php', { action: "update", chair: $(this).attr("data-chair"), user_id: '<?php echo $_SESSION['id']; ?>'  }, function(result)
+                    $.post('updateChairs.php', { action: "update", chair: $(this).attr("data-chair"), user_id: '<?php echo $_SESSION['id']; ?>'  }, function(result)
                     {
                         chairsSelected++;
                         console.log("chair updated");
@@ -156,7 +158,7 @@
         getChairs();
 
         async function getChairs() {
-            let url = "code/chairsPersonal.php";
+            let url = "code/chairs.php";
             await fetch(url)
                 .then(response => response.json())
                 .then(data => {

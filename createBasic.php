@@ -62,29 +62,39 @@
     </div>
 
     <div class="col-lg-6 mx-auto">
-    <form action="updateSetting.php" id="userSettingsForm" method="post">
+    <form action="createAdmin1.php" id="userSettingsForm" method="post">
       <div class="mb-3">
-        <label for="user" class="form-label">Username:</label>
-        <input type="text" class="form-control" id="user" name="user" readonly value="'.$_SESSION["auth"].'" required>
+        <label for="numMesas" class="form-label">Numero de mesas:</label>
+        <input type="text" class="form-control" id="numMesas" name="numMesas" required>
       </div>
       <div class="mb-3">
-        <label for="new_username" class="form-label">New Username:</label>
-        <input type="text" class="form-control" id="new_username" name="new_username" required>
+        <label for="numInvitados" class="form-label">Numero de invitados:</label>
+        <input type="text" class="form-control" id="numInvitados" name="numInvitados" required>
       </div>
+
       <div class="mb-3">
-        <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="email" name="email" value="'.$_SESSION["email"].'" required>
-      </div>
+      <label for="tipoFiesta" class="form-label">Tipo de fiesta:</label>
+      <select class="form-select" id="tipoFiesta" name="tipoFiesta" required>
+        <option value="">Selecciona el tipo de fiesta</option>
+        <option value="Graduación">Graduación</option>
+        <option value="Festival">Festival</option>
+        <option value="Reunión">Reunión</option>
+        <option value="Conferencia">Conferencia</option>
+      </select>
+    </div>
+
       <div class="mb-3">
-        <label for="password" class="form-label">New Password:</label>
-        <input type="password" class="form-control" id="password" name="password" required>
-      </div>
-      <div class="mb-3">
-        <label for="confirm_password" class="form-label">Confirm New Password:</label>
-        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+        <label for="tipoComida" class="form-label">Seleciona tu comida:</label>
+        <select class="form-select" id="tipoComida" name="tipoComida" required>
+          <option value="">Selecciona una opción</option>
+          <option value="Buffet">Buffet</option>
+          <option value="Platillos a la carta">Platillos a la carta</option>
+          <option value="Cena formal">Cena formal</option>
+          <option value="Parrillada">Parrillada</option>
+        </select>
       </div>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-3">
-        <button type="submit" id="buttonSubmit" class="btn btn-primary btn-lg px-4 me-sm-3">Update Changes</button>
+        <button type="submit" id="buttonSubmit" class="btn btn-primary btn-lg px-4 me-sm-3">Actualizar cambios</button>
       </div>
     </form>
   </div>
