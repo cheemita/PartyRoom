@@ -87,7 +87,7 @@ summary,
 time,
 mark,
 audio,
-video {
+video !i {
     margin: 0;
     padding: 0;
     border: 0;
@@ -255,13 +255,13 @@ a {
     -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
     border-bottom: dotted 1px;
-    color: #f56a6a;
+    color: #027cff;
     text-decoration: none;
 }
 
 a:hover {
-    border-bottom-color: #f56a6a;
-    color: #f56a6a !important;
+    border-bottom-color: #027cff;
+    color: #027cff !important;
 }
 
 a:hover strong {
@@ -1612,7 +1612,7 @@ header p {
 }
 
 header.major> :last-child {
-    border-bottom: solid 3px #f56a6a;
+    border-bottom: solid 3px #027cff;
     display: inline-block;
     margin: 0 0 2em 0;
     padding: 0 0.75em 0.5em 0;
@@ -2136,7 +2136,7 @@ ul.contact li:before {
 }
 
 ul.contact li:before {
-    color: #f56a6a;
+    color: #027cff;
     display: inline-block;
     font-size: 1.5em;
     height: 1.125em;
@@ -2196,16 +2196,16 @@ ul.pagination li>.page {
 }
 
 ul.pagination li>.page.active {
-    background-color: #f56a6a;
+    background-color: #027cff;
     color: #ffffff !important;
 }
 
 ul.pagination li>.page.active:hover {
-    background-color: #f67878;
+    background-color: #027cff;
 }
 
 ul.pagination li>.page.active:active {
-    background-color: #f45c5c;
+    background-color: #027cff;
 }
 
 ul.pagination li:first-child {

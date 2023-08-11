@@ -28,15 +28,7 @@
               mb-4
               border-bottom
             ">
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> ADMIN </a></li>
-            <li><a href="#packages" class="nav-link px-2 link-dark">Packages</a></li>
-            <li><a href="#slider" class="nav-link px-2 link-dark">Slider</a></li>
-            <li><a href="#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
-            <li><button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalContact">
-                Contact Us
-              </button></li>
-          </ul>
+       
 
 
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalToken">
@@ -271,7 +263,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+									<a href="index.html" class="logo"><strong>Choose</strong> Package</a>
 									<ul class="icons">
 										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -390,58 +382,39 @@
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="admin.php">Homepage</a></li>
-										<li><a href="generic.php">Generic</a></li>
-										<li><a href="elements.php">Packages</a></li>
-										<li>
-											<span class="opener">Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Etiam Dolore</a></li>
-										<li><a href="#">Adipiscing</a></li>
-										<li>
-											<span class="opener">Another Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Maximus Erat</a></li>
-										<li><a href="#">Sapien Mauris</a></li>
-										<li><a href="#">Amet Lacinia</a></li>
+                  <ul>
+            <li><a href="admin.php">Homepage</a></li>
+            <li><a href="generic.php">Make your Event</a></li>
+            <li><a href="elements.php">Packages</a></li>
+            <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalContact">
+              Contact Us
+            </button></li>
+            </li>
 									</ul>
 								</nav>
 
 							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section>
+              <section>
+                  <header class="major">
+                    <h2>CORPORATE AND SOCIAL EVENTS</h2>
+                  </header>
+                  <div class="mini-posts">
+                    <article>
+                      <a href="#" class="image"><img src="img/pic07.jpg" alt="" /></a>
+                      <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                    </article>
+                    <article>
+                      <a href="#" class="image"><img src="img/pic08.jpg" alt="" /></a>
+                      <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                    </article>
+                    <article>
+                      <a href="#" class="image"><img src="img/pic09.jpg" alt="" /></a>
+                      <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                    </article>
+                  </div>
+                  <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                  </ul>
 
 							<!-- Section -->
 								<section>
@@ -458,8 +431,8 @@
 								</section>
 
 							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+              <footer id="footer">
+									<p class="copyright">&copy;UNIPOLI<a href="https://unsplash.com"></a> <a href="#">EVENTS</a>.</p>
 								</footer>
 
 						</div>

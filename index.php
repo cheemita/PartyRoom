@@ -92,6 +92,7 @@
           </ul>
         </div>
         </header>
+        
     </div>';
   }  else {
     echo ' <div class="container">
