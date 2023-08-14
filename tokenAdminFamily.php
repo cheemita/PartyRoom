@@ -18,7 +18,9 @@ $result->execute();
 $result->bind_result($user_result, $email_result, $id_result, $token_result, $packages_result);
 $result->fetch();
 
-if ($user_result != null && $token === $token_result && $packages_result === "familiar") {
+
+
+if ($user_result != null && $token === $token_result && $packages_result === "familiar" ) {
     // Token válido
     $_SESSION["auth"] = $user_result;
     $_SESSION["id"] = $id_result;

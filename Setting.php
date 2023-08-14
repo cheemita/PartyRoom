@@ -40,13 +40,10 @@
               border-bottom
             ">
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> ADMIN </a></li>
-            <li><a href="#packages" class="nav-link px-2 link-dark">Packages</a></li>
-            <li><a href="#slider" class="nav-link px-2 link-dark">Slider</a></li>
-            <li><a href="#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
-            <li><button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalContact">
-                Contact Us
-              </button></li>
+            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> Admin </a></li>
+            <li><a href="index.php#general-info" class="nav-link px-2 link-dark">General Information</a></li>
+            <li><a href="index.php#packages" class="nav-link px-2 link-dark">Packages</a></li>
+            <li><a href="index.php#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
           </ul>
 
           <div class="dropdown text-end">
@@ -105,13 +102,10 @@
               border-bottom
             ">
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> INVITADO </a></li>
-            <li><a href="#packages" class="nav-link px-2 link-dark">Packages</a></li>
-            <li><a href="#slider" class="nav-link px-2 link-dark">Slider</a></li>
-            <li><a href="#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
-            <li><button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalContact">
-                Contact Us
-              </button></li>
+            <li><a href="#generalInfo" class="nav-link px-2 link-dark"> Guess </a></li>
+            <li><a href="index.php#general-info" class="nav-link px-2 link-dark">General Information</a></li>
+            <li><a href="elements.php" class="nav-link px-2 link-dark">Packages</a></li>
+            <li><a href="index.php#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
           </ul>
 
           <div class="dropdown text-end">
@@ -179,15 +173,9 @@
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#generalInfo" class="nav-link px-2 link-dark">General Information</a></li>
-          <li><a href="#packages" class="nav-link px-2 link-dark">Packages</a></li>
-          <li><a href="#slider" class="nav-link px-2 link-dark">Slider</a></li>
-          <li><a href="#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
-          <li><button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalContact">
-              Contact Us
-            </button></li>
-        </ul>
-
+        <li><a href="index.php#general-info" class="nav-link px-2 link-dark">General Information</a></li>
+          <li><a href="elements.php" class="nav-link px-2 link-dark">Packages</a></li>
+          <li><a href="index.php#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
         <div class="col-md-3 text-end">
           <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#modalSelectOp">
             Login
@@ -205,15 +193,11 @@
   <div class="container">
     <footer class="py-3 my-4">
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li><a href="#generalInfo" class="nav-link px-2 link-dark">General Information</a></li>
-        <li><a href="#packages" class="nav-link px-2 link-dark">Packages</a></li>
-        <li><a href="#slider" class="nav-link px-2 link-dark">Slider</a></li>
-        <li><a href="#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
-        <li><button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#modalContact">
-            Contact Us
-          </button></li>
+      <li><a href="index.php#general-info" class="nav-link px-2 link-dark">General Information</a></li>
+        <li><a href="elements.php" class="nav-link px-2 link-dark">Packages</a></li>
+        <li><a href="index.php#gallery" class="nav-link px-2 link-dark">Gallery</a></li>
       </ul>
-      <p class="text-center text-muted">Ever Alejandro Alvarez Quiñones</p>
+      <p class="text-center text-muted">Party Room</p>
     </footer>
   </div>
 

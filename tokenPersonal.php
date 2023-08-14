@@ -6,6 +6,8 @@ $token = $_POST["token"];
 $user = $_POST["user"];
 $newPackagesValue = "personal";
 
+
+
 // Check if the submitted username matches the currently logged-in user
 if ($user !== $_SESSION["authInv"]) {
     echo "<script>alert('Invalid username. Please enter the correct username.'); window.location.href='Admin.php';</script>";
@@ -50,7 +52,6 @@ if ($token === $token_result) {
 
 
 if ($user_result != null && $token === $token_result && $packages_result === "personal") {
-
     // Token válido
     $_SESSION["authInv"] = $user_result;
     $_SESSION["id"] = $id_result;

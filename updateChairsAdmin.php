@@ -17,6 +17,7 @@ if($action == "update") {
 
 // if action is delete then delete the record
 if($action == "delete") {
+
     $result = $mysql->prepare("DELETE FROM basic WHERE id = ?");
     $result->bind_param("s", $chair);
     $result->execute();

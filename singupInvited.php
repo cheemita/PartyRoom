@@ -32,6 +32,23 @@ if ($adminTokenFromDB !== $token) {
     exit; // Make sure to exit after redirection
 }
 
+$adminUsername = $_POST["admin"]; // Suponiendo que guardas el nombre de usuario del administrador en la sesión
+$stmt = $mysql->prepare("SELECT token FROM users WHERE username = ? LIMIT 1");
+$stmt->bind_param("s", $adminUsername);
+$stmt->execute();
+$stmt->bind_result($adminTokenFromDB);
+$stmt->fetch();
+$stmt->close();
+
+if ($token !== $adminTokenFromDB && $adminTokenFromDB == "PER") {
+    $packages = "personal";
+    echo '<script>alert("Token inválido. No estás autorizado para realizar esta acción."); window.location.href = "Admin.php";</script>';
+    exit; // Detener la ejecución del script para evitar la inserción del usuario no autorizado
+}else if($token !== $adminTokenFromDB && $adminTokenFromDB == "BAS"){
+    $packages = "basico";
+}else if($token !== $adminTokenFromDB && $adminTokenFromDB == "FAM"){
+    $packages = "familiar";
+}
 
 // Verificar si el nombre de usuario ya existe en la base de datos
 $result_check_user = $mysql->prepare("SELECT id FROM users WHERE username = ?");
@@ -39,6 +56,15 @@ $result_check_user->bind_param("s", $user);
 $result_check_user->execute();
 $result_check_user->store_result();
 $num_rows = $result_check_user->num_rows;
+
+
+// Verificar si el nombre de usuario ya existe en la base de datos
+$result_check_user = $mysql->prepare("SELECT id FROM users WHERE username = ?");
+$result_check_user->bind_param("s", $user);
+$result_check_user->execute();
+$result_check_user->store_result();
+$num_rows = $result_check_user->num_rows;
+
 
 if ($num_rows > 0) {
     // Usuario ya existe en la base de datos, mostrar alerta
@@ -75,4 +101,5 @@ if ($user_result != null && $token === $adminTokenFromDB) {
     echo '<script>alert("Token incorrecto xd"); window.location.href = "index.php";</script>';
     session_destroy();
 }
+
 ?>

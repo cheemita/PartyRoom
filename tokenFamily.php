@@ -54,7 +54,6 @@ if ($token === $token_result) {
 
 
 if ($user_result != null && $token === $token_result && $packages_result === "familiar") {
-
     // Token válido
     $_SESSION["authInv"] = $user_result;
     $_SESSION["id"] = $id_result;
@@ -65,5 +64,8 @@ if ($user_result != null && $token === $token_result && $packages_result === "fa
 } else {
     // Token inválido
     echo "<script>alert('Invalid token. Please enter the correct token or your token is not the right package.'); window.location.href='Admin.php';</script>";
+
+    echo "<script>alert('Invalid token. Please enter the correct token or your token no is the right packages'); window.location.href='Admin.php';</script>";
+
 }
 ?>
